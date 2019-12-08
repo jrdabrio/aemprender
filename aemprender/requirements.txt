@@ -1,12 +1,12 @@
-backcall==0.1.0
-colorama==0.4.1
+# backcall==0.1.0
+# colorama==0.4.1
 decorator==4.4.1
 Django==2.0.3
 django-js-asset==1.2.2
 django-mptt==0.10.0
 django-polymorphic==2.0.3
 entrypoints==0.3
-ipdb==0.12.2
+# ipdb==0.12.2
 ipython==7.10.0
 ipython-genutils==0.2.0
 jedi==0.15.1
@@ -15,9 +15,9 @@ parso==0.5.1
 pbr==3.1.1
 pickleshare==0.7.5
 Pillow==5.0.0
-prompt-toolkit==3.0.2
+# prompt-toolkit==3.0.2
 pycodestyle==2.5.0
-pyflakes==2.1.1
+# pyflakes==2.1.1
 Pygments==2.5.2
 pytz==2018.3
 six==1.11.0
