@@ -1,0 +1,389 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+    <div class="row center-align">
+        <div class="row">
+            <div class="col s12 m6 offset-m3">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Pregunta 1</span>
+                            <p>{{ actividad_actual.pregunta_uno }}</p>
+                        </div>
+                        <div class="card-action">
+                            <div class="row">
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_uno" type="radio" value="0" {% if form.respuesta_uno.value == 0 %} checked {% endif %} />
+                                        <span>0</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_uno" type="radio" value="1" {% if form.respuesta_uno.value == 1 %} checked {% endif %} />
+                                        <span>1</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_uno" type="radio" value="2" {% if form.respuesta_uno.value == 2 %} checked {% endif %} />
+                                        <span>2</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_uno" type="radio" value="3" {% if form.respuesta_uno.value == 3 %} checked {% endif %} />
+                                        <span>3</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Pregunta 2</span>
+                            <p>{{ actividad_actual.pregunta_dos }}</p>
+                        </div>
+                        <div class="card-action">
+                            <div class="row">
+                                <div class="col s12 m3">
+                                    <label> 
+                                        <input class="with-gap" name="respuesta_dos" type="radio" value="0" {% if form.respuesta_dos.value == 0 %} checked {% endif %} />
+                                        <span>0</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_dos" type="radio" value="1" {% if form.respuesta_dos.value == 1 %} checked {% endif %} />
+                                        <span>1</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_dos" type="radio" value="2" {% if form.respuesta_dos.value == 2 %} checked {% endif %} />
+                                        <span>2</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_dos" type="radio" value="3" {% if form.respuesta_dos.value == 3 %} checked {% endif %} />
+                                        <span>3</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Pregunta 3</span>
+                            <p>{{ actividad_actual.pregunta_tres }}</p>
+                        </div>
+                        <div class="card-action">
+                            <div class="row">
+                                <div class="col s12 m3">
+                                    <label> 
+                                        <input class="with-gap" name="respuesta_tres" type="radio" value="0" {% if form.respuesta_tres.value == 0 %} checked {% endif %} />
+                                        <span>0</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_tres" type="radio" value="1" {% if form.respuesta_tres.value == 1 %} checked {% endif %} />
+                                        <span>1</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_tres" type="radio" value="2" {% if form.respuesta_tres.value == 2 %} checked {% endif %} />
+                                        <span>2</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_tres" type="radio" value="3" {% if form.respuesta_tres.value == 3 %} checked {% endif %} />
+                                        <span>3</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Pregunta 4</span>
+                            <p>{{ actividad_actual.pregunta_cuatro }}</p>
+                        </div>
+                        <div class="card-action">
+                            <div class="row">
+                                <div class="col s12 m3">
+                                    <label> 
+                                        <input class="with-gap" name="respuesta_cuatro" type="radio" value="0" {% if form.respuesta_cuatro.value == 0 %} checked {% endif %} />
+                                        <span>0</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_cuatro" type="radio" value="1" {% if form.respuesta_cuatro.value == 1 %} checked {% endif %} />
+                                        <span>1</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_cuatro" type="radio" value="2" {% if form.respuesta_cuatro.value == 2 %} checked {% endif %} />
+                                        <span>2</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_cuatro" type="radio" value="3" {% if form.respuesta_cuatro.value == 3 %} checked {% endif %} />
+                                        <span>3</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Pregunta 5</span>
+                            <p>{{ actividad_actual.pregunta_cinco }}</p>
+                        </div>
+                        <div class="card-action">
+                            <div class="row">
+                                <div class="col s12 m3">
+                                    <label> 
+                                        <input class="with-gap" name="respuesta_cinco" type="radio" value="0" {% if form.respuesta_cinco.value == 0 %} checked {% endif %} />
+                                        <span>0</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_cinco" type="radio" value="1" {% if form.respuesta_cinco.value == 1 %} checked {% endif %} />
+                                        <span>1</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_cinco" type="radio" value="2" {% if form.respuesta_cinco.value == 2 %} checked {% endif %} />
+                                        <span>2</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_cinco" type="radio" value="3" {% if form.respuesta_cinco.value == 3 %} checked {% endif %} />
+                                        <span>3</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Pregunta 6</span>
+                            <p>{{ actividad_actual.pregunta_seis }}</p>
+                        </div>
+                        <div class="card-action">
+                            <div class="row">
+                                <div class="col s12 m3">
+                                    <label> 
+                                        <input class="with-gap" name="respuesta_seis" type="radio" value="0" {% if form.respuesta_seis.value == 0 %} checked {% endif %} />
+                                        <span>0</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_seis" type="radio" value="1" {% if form.respuesta_seis.value == 1 %} checked {% endif %} />
+                                        <span>1</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_seis" type="radio" value="2" {% if form.respuesta_seis.value == 2 %} checked {% endif %} />
+                                        <span>2</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_seis" type="radio" value="3" {% if form.respuesta_seis.value == 3 %} checked {% endif %} />
+                                        <span>3</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Pregunta 7</span>
+                            <p>{{ actividad_actual.pregunta_siete }}</p>
+                        </div>
+                        <div class="card-action">
+                            <div class="row">
+                                <div class="col s12 m3">
+                                    <label> 
+                                        <input class="with-gap" name="respuesta_siete" type="radio" value="0" {% if form.respuesta_siete.value == 0 %} checked {% endif %} />
+                                        <span>0</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_siete" type="radio" value="1" {% if form.respuesta_siete.value == 1 %} checked {% endif %} />
+                                        <span>1</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_siete" type="radio" value="2" {% if form.respuesta_siete.value == 2 %} checked {% endif %} />
+                                        <span>2</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_siete" type="radio" value="3" {% if form.respuesta_siete.value == 3 %} checked {% endif %} />
+                                        <span>3</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Pregunta 8</span>
+                            <p>{{ actividad_actual.pregunta_ocho }}</p>
+                        </div>
+                        <div class="card-action">
+                            <div class="row">
+                                <div class="col s12 m3">
+                                    <label> 
+                                        <input class="with-gap" name="respuesta_ocho" type="radio" value="0" {% if form.respuesta_ocho.value == 0 %} checked {% endif %} />
+                                        <span>0</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_ocho" type="radio" value="1" {% if form.respuesta_ocho.value == 1 %} checked {% endif %} />
+                                        <span>1</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_ocho" type="radio" value="2" {% if form.respuesta_ocho.value == 2 %} checked {% endif %} />
+                                        <span>2</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_ocho" type="radio" value="3" {% if form.respuesta_ocho.value == 3 %} checked {% endif %} />
+                                        <span>3</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Pregunta 9</span>
+                            <p>{{ actividad_actual.pregunta_nueve }}</p>
+                        </div>
+                        <div class="card-action">
+                            <div class="row">
+                                <div class="col s12 m3">
+                                    <label> 
+                                        <input class="with-gap" name="respuesta_nueve" type="radio" value="0" {% if form.respuesta_nueve.value == 0 %} checked {% endif %} />
+                                        <span>0</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_nueve" type="radio" value="1" {% if form.respuesta_nueve.value == 1 %} checked {% endif %} />
+                                        <span>1</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_nueve" type="radio" value="2" {% if form.respuesta_nueve.value == 2 %} checked {% endif %} />
+                                        <span>2</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_nueve" type="radio" value="3" {% if form.respuesta_nueve.value == 3 %} checked {% endif %} />
+                                        <span>3</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Pregunta 10</span>
+                            <p>{{ actividad_actual.pregunta_diez }}</p>
+                        </div>
+                        <div class="card-action">
+                            <div class="row">
+                                <div class="col s12 m3">
+                                    <label> 
+                                        <input class="with-gap" name="respuesta_diez" type="radio" value="0" {% if form.respuesta_diez.value == 0 %} checked {% endif %} />
+                                        <span>0</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_diez" type="radio" value="1" {% if form.respuesta_diez.value == 1 %} checked {% endif %} />
+                                        <span>1</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_diez" type="radio" value="2" {% if form.respuesta_diez.value == 2 %} checked {% endif %} />
+                                        <span>2</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_diez" type="radio" value="3" {% if form.respuesta_diez.value == 3 %} checked {% endif %} />
+                                        <span>3</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Pregunta 11</span>
+                            <p>{{ actividad_actual.pregunta_once }}</p>
+                        </div>
+                        <div class="card-action">
+                            <div class="row">
+                                <div class="col s12 m3">
+                                    <label> 
+                                        <input class="with-gap" name="respuesta_once" type="radio" value="0" {% if form.respuesta_once.value == 0 %} checked {% endif %} />
+                                        <span>0</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_once" type="radio" value="1" {% if form.respuesta_once.value == 1 %} checked {% endif %} />
+                                        <span>1</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_once" type="radio" value="2" {% if form.respuesta_once.value == 2 %} checked {% endif %} />
+                                        <span>2</span>
+                                    </label>
+                                </div>
+                                <div class="col s12 m3">
+                                    <label>
+                                        <input class="with-gap" name="respuesta_once" type="radio" value="3" {% if form.respuesta_once.value == 3 %} checked {% endif %} />
+                                        <span>3</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="waves-effect waves-light btn-large" type="submit">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

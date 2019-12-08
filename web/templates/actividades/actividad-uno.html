@@ -1,0 +1,87 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+    <div class="row center-align">
+        <div class="row">
+            <div class="col s12 m6 offset-m3">
+                <div class="card">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="card-content">
+                            <span class="card-title">Pregunta {{ actividad_actual.pk }}</span>
+                            <p>{{ actividad_actual.name }}</p>
+                        </div>
+                        <div class="card-action">
+                            <div class="collection">
+                                <p>
+                                <label>
+                                    <input class="with-gap" name="valor" type="radio" value="1" {% if form.valor.value == 1 %} checked {% endif %} />
+                                    <span>{{ actividad_actual.respuesta_uno }}</span>
+                                </label>
+                                </p>
+                                <p>
+                                <label>
+                                    <input class="with-gap" name="valor" type="radio" value="2" {% if form.valor.value == 2 %} checked {% endif %} />
+                                    <span>{{ actividad_actual.respuesta_dos }}</span>
+                                </label>
+                                </p>
+                                <p>
+                                <label>
+                                    <input class="with-gap" name="valor" type="radio" value="3" {% if form.valor.value == 3 %} checked {% endif %} />
+                                    <span>{{ actividad_actual.respuesta_tres }}</span>
+                                </label>
+                                </p>
+                                <p>
+                                <label>
+                                    <input class="with-gap" name="valor" type="radio" value="4" {% if form.valor.value == 4 %} checked {% endif %} />
+                                    <span>{{ actividad_actual.respuesta_cuatro }}</span>
+                                </label>
+                                </p>
+                            </div>
+                            <button class="waves-effect waves-light btn-large" type="submit">
+                                {% if actividad_actual.has_next %}
+                                    Guardar
+                                {% else %}
+                                    Finalizar
+                                {% endif %}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row center">
+        <ul class="pagination">
+            {% if actividad_actual.has_previous %}
+                <li class="waves-effect"><a href="{% url 'actividad-uno' actividad_actual.has_previous %}"><i class="material-icons">chevron_left</i></a></li>
+            {% else %}
+                <li class="disabled"><i class="material-icons">chevron_left</i></li>
+            {% endif %}
+            {% for actividad in actividades %}
+                {% if actividad.pk == actividad_actual.pk %}
+                    <li class="active"><a href="{% url 'actividad-uno' actividad.pk %}">{{ forloop.counter }}</a></li>
+                {% else %}
+                    <li class="waves-effect"><a href="{% url 'actividad-uno' actividad.pk %}">{{ forloop.counter }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if actividad_actual.has_next %}
+                <li class="waves-effect"><a href="{% url 'actividad-uno' actividad_actual.has_next %}"><i class="material-icons">chevron_right</i></a></li>
+            {% else %}
+                <li class="disabled"><i class="material-icons">chevron_right</i></li>
+            {% endif %}
+        </ul>
+    </div>
+    
+    {% comment %} <ul class="pagination">
+        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+        <li class="active"><a href="#!">1</a></li>
+        <li class="waves-effect"><a href="#!">2</a></li>
+        <li class="waves-effect"><a href="#!">3</a></li>
+        <li class="waves-effect"><a href="#!">4</a></li>
+        <li class="waves-effect"><a href="#!">5</a></li>
+        <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+    </ul> {% endcomment %}
+{% endblock %}
