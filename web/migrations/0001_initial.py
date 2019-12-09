@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(default='Titulo', max_length=200)),
                 ('description', models.TextField(max_length=500)),
-                ('plantilla', models.Field(blank=True, null=True)),
+                ('plantilla', models.TextField(max_length=500, blank=True, null=True)),
             ],
             options={
                 'verbose_name_plural': 'Actividades Cinco',
@@ -116,7 +116,7 @@ class Migration(migrations.Migration):
             name='RespuestasCinco',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('valor', models.Field(blank=True, null=True)),
+                ('valor', models.TextField(max_length=500, blank=True, null=True)),
                 ('actividad', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='respuestas_cinco', to='web.ActividadCinco')),
                 ('alumno', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='respuestas_cinco', to='web.Alumno')),
             ],

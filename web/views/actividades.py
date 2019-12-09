@@ -7,6 +7,8 @@ from web.models import (
     RespuestasUno,
     ActividadDos,
     RespuestasDos,
+    ActividadTres,
+    RespuestasTres,
     ActividadCuatro,
     RespuestasCuatro,
     ActividadCinco,
@@ -18,6 +20,7 @@ from web.models import (
 from web.forms import (
     RespuestasUnoForm,
     RespuestasDosForm,
+    RespuestasTresForm,
     RespuestasCuatroForm,
     RespuestasCincoForm,
     RespuestasSeisForm
@@ -123,6 +126,53 @@ class ActividadDosView(FormView):
             )
 
         messages.success(self.request, '¡Actividad dos completada!.')
+
+        return super().form_valid(form)
+
+
+class ActividadTresView(FormView):
+    template_name = "actividades/actividad-tres.html"
+    form_class = RespuestasTresForm
+    success_url = reverse_lazy('home')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['actividad_actual'] = ActividadTres.objects.first()
+        context['menu_actual'] = 3
+        return context
+
+    def get_initial(self):
+        """
+        Returns the initial data to use for forms on this view.
+        """
+        actividad = ActividadTres.objects.first()
+        alumno = Alumno.objects.get(pk=self.request.user.pk)
+        initial = super(ActividadTresView, self).get_initial()
+
+        try:
+            respuesta = RespuestasTres.objects.get(actividad=actividad, alumno=alumno)
+            initial['valor'] = respuesta.valor
+        except RespuestasTres.DoesNotExist:
+            initial = []
+
+        return initial
+
+    def form_valid(self, form):
+        actividad = ActividadTres.objects.first()
+        alumno = Alumno.objects.get(pk=self.request.user.pk)
+        cleaned_data = form.cleaned_data
+        try:
+            respuesta = RespuestasTres.objects.get(actividad=actividad, alumno=alumno)
+            respuesta.valor = cleaned_data.get('valor')
+            respuesta.save()
+        except RespuestasTres.DoesNotExist:
+            respuesta = RespuestasTres.objects.get_or_create(
+                actividad=actividad,
+                alumno=alumno,
+                valor=cleaned_data.get('valor')
+            )
+
+        messages.success(self.request, '¡Actividad tres completada!.')
 
         return super().form_valid(form)
 

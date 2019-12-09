@@ -121,6 +121,49 @@ class RespuestasDos(models.Model):
         return self.name
 
 
+class ActividadTres(models.Model):
+    title = models.CharField(max_length=200, default="Titulo")
+    description = models.CharField(max_length=200)
+    titulo_uno = models.CharField(max_length=200, null=True, blank=True)
+    paso_uno = models.CharField(max_length=500, null=True, blank=True)
+    titulo_dos = models.CharField(max_length=200, null=True, blank=True)
+    paso_dos = models.CharField(max_length=500, null=True, blank=True)
+    titulo_tres = models.CharField(max_length=200, null=True, blank=True)
+    paso_tres = models.CharField(max_length=500, null=True, blank=True)
+    titulo_cuatro = models.CharField(max_length=200, null=True, blank=True)
+    paso_cuatro = models.CharField(max_length=500, null=True, blank=True)
+    titulo_cinco = models.CharField(max_length=200, null=True, blank=True)
+    paso_cinco = models.CharField(max_length=500, null=True, blank=True)
+
+    class Meta:
+        verbose_name_plural = "Actividades Tres"
+
+    def __str__(self):
+        return self.title
+
+
+class RespuestasTres(models.Model):
+    actividad = models.ForeignKey(
+        "ActividadTres",
+        on_delete=models.CASCADE,
+        related_name="respuestas_tres",
+    )
+    alumno = models.ForeignKey(
+        "Alumno",
+        on_delete=models.CASCADE,
+        related_name='respuestas_tres',
+        blank=True,
+        null=True
+    )
+    valor = models.CharField(verbose_name="Respuesta", max_length=200)
+
+    class Meta:
+        verbose_name_plural = "Respuestas Tres"
+
+    def __str__(self):
+        return self.name
+
+
 class ActividadCuatro(models.Model):
     title = models.CharField(max_length=200, default="Titulo")
     name = models.TextField(max_length=2050)
@@ -157,7 +200,9 @@ class RespuestasCuatro(models.Model):
 class ActividadCinco(models.Model):
     title = models.CharField(max_length=200, default="Titulo")
     description = models.TextField(max_length=500)
-    plantilla = models.Field(
+    plantilla = models.FileField(
+        verbose_name='Plantilla',
+        upload_to='uploads/',
         null=True,
         blank=True
     )
@@ -182,9 +227,11 @@ class RespuestasCinco(models.Model):
         blank=True,
         null=True
     )
-    valor = models.Field(
-        null=True,
-        blank=True
+    valor = models.FileField(
+        verbose_name='Fichero',
+        upload_to='uploads/',
+        blank=True,
+        null=True
     )
 
     class Meta:

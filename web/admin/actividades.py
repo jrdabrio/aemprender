@@ -4,6 +4,8 @@ from web.models import (
     RespuestasUno,
     ActividadDos,
     RespuestasDos,
+    ActividadTres,
+    RespuestasTres,
     ActividadCuatro,
     RespuestasCuatro,
     ActividadCinco,
@@ -30,6 +32,16 @@ class ActividadDosAdmin(admin.ModelAdmin):
 
 @admin.register(RespuestasDos)
 class RespuestasDosAdmin(admin.ModelAdmin):
+    list_display = ['alumno', 'valor']
+
+
+@admin.register(ActividadTres)
+class ActividadTresAdmin(admin.ModelAdmin):
+    list_display = ['title', ]
+
+
+@admin.register(RespuestasTres)
+class RespuestasTresAdmin(admin.ModelAdmin):
     list_display = ['alumno', 'valor']
 
 

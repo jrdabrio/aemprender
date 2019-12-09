@@ -1,0 +1,111 @@
+{% extends 'home.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="row center-align">
+        <div class="row">
+            <div class="col s12 m5 offset-m1">
+                <div class="card large">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="{% static 'images/paso_1.jpg' %}">
+                    </div>
+                    <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{ actividad_actual.titulo_uno }}<i class="material-icons right">more_vert</i></span>
+                    <p>CLick en la imagen</p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ actividad_actual.titulo_uno }}<i class="material-icons right">close</i></span>
+                        <p>{{ actividad_actual.paso_uno }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m5">
+                <div class="card large">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="{% static 'images/paso_2.webp' %}">
+                    </div>
+                    <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{ actividad_actual.titulo_dos }}<i class="material-icons right">more_vert</i></span>
+                    <p>CLick en la imagen</p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ actividad_actual.titulo_dos }}<i class="material-icons right">close</i></span>
+                        <p>{{ actividad_actual.paso_dos }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m5 offset-m1">
+                <div class="card large">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="{% static 'images/paso_3.png' %}">
+                    </div>
+                    <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{ actividad_actual.titulo_tres }}<i class="material-icons right">more_vert</i></span>
+                    <p>CLick en la imagen</p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ actividad_actual.titulo_tres }}<i class="material-icons right">close</i></span>
+                        <p>{{ actividad_actual.paso_tres }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m5">
+                <div class="card large">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="{% static 'images/paso_4.png' %}">
+                    </div>
+                    <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{ actividad_actual.titulo_cuatro }}<i class="material-icons right">more_vert</i></span>
+                    <p>CLick en la imagen</p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ actividad_actual.titulo_cuatro }}<i class="material-icons right">close</i></span>
+                        <p>{{ actividad_actual.paso_cuatro }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m5 offset-m1">
+                <div class="card large">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="{% static 'images/paso_5.png' %}">
+                    </div>
+                    <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{ actividad_actual.titulo_cinco }}<i class="material-icons right">more_vert</i></span>
+                    <p>CLick en la imagen</p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ actividad_actual.titulo_cinco }}<i class="material-icons right">close</i></span>
+                        <p>{{ actividad_actual.paso_cinco }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m5">
+                <div class="card large">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="card-content">
+                            <span class="card-title">{{ actividad_actual.title }}</span>
+                            <p>{{ actividad_actual.name }}</p>
+                        </div>
+                        <div class="card-action">
+                            <form method="post">
+                            {% csrf_token %}
+                                <div class="input-field col s12">
+                                    <input id="{{ form.valor.html_name }}" type="text" name="{{ form.valor.html_name }}" value="{{ form.valor.value|default:'' }}">
+                                    <label for="{{ form.valor.id_for_label }}">Respuesta:</label>
+                                </div>
+                                <button class="waves-effect waves-light btn-large" type="submit">Guardar</button>
+                            </form>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

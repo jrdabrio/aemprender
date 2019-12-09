@@ -15,7 +15,10 @@
                         <div class="card-action">
                             <form method="post">
                             {% csrf_token %}
-                                {{ form.as_p }}
+                                <div class="input-field col s12">
+                                    <input id="{{ form.valor.html_name }}" type="text" name="{{ form.valor.html_name }}" value="{{ form.valor.value|default:'' }}">
+                                    <label for="{{ form.valor.id_for_label }}">Respuesta:</label>
+                                </div>
                                 <button class="waves-effect waves-light btn-large" type="submit">Guardar</button>
                             </form>
                         </div>

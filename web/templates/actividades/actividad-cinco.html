@@ -11,7 +11,7 @@
                         <p>{{ actividad_actual.name }}</p>
                     </div>
                     <div class="card-action">
-                        <form method="post">
+                        <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                             {{ form.as_p }}
                             <button class="waves-effect waves-light btn-large" type="submit">Guardar</button>

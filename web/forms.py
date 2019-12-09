@@ -3,6 +3,7 @@ from django import forms
 from .models import (
     RespuestasUno,
     RespuestasDos,
+    RespuestasTres,
     RespuestasCuatro,
     RespuestasCinco,
     RespuestasSeis
@@ -23,6 +24,16 @@ class RespuestasDosForm(forms.ModelForm):
         fields = ['valor']
         widgets = {
             'valor': forms.Textarea(attrs={'placeholder': u'Escribe aquí tu respuesta.', 'rows': 8, 'cols': 15}),
+        }
+
+
+class RespuestasTresForm(forms.ModelForm):
+
+    class Meta:
+        model = RespuestasTres
+        fields = ['valor']
+        widgets = {
+            'valor': forms.Textarea(attrs={'placeholder': u'Escribe aquí tu respuesta.', 'rows': 50, 'cols': 15}),
         }
 
 
