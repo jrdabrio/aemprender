@@ -90,7 +90,7 @@ class RespuestasUno(models.Model):
 
 class ActividadDos(models.Model):
     title = models.CharField(max_length=200, default="Titulo")
-    name = models.TextField(max_length=500)
+    name = models.TextField(max_length=2050)
 
     class Meta:
         verbose_name_plural = "Actividades Dos"
@@ -112,7 +112,7 @@ class RespuestasDos(models.Model):
         blank=True,
         null=True
     )
-    valor = models.TextField(verbose_name="Respuesta", max_length=500)
+    valor = models.TextField(verbose_name="Respuesta", max_length=2050)
 
     class Meta:
         verbose_name_plural = "Respuestas Dos"
@@ -123,7 +123,7 @@ class RespuestasDos(models.Model):
 
 class ActividadCuatro(models.Model):
     title = models.CharField(max_length=200, default="Titulo")
-    name = models.TextField(max_length=500)
+    name = models.TextField(max_length=2050)
 
     class Meta:
         verbose_name_plural = "Actividades Cuatro"
@@ -145,7 +145,7 @@ class RespuestasCuatro(models.Model):
         blank=True,
         null=True
     )
-    valor = models.CharField(verbose_name="Respuesta", max_length=500)
+    valor = models.CharField(verbose_name="Respuesta", max_length=2050)
 
     class Meta:
         verbose_name_plural = "Respuestas Cuatro"
