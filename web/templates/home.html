@@ -44,14 +44,34 @@
       <div class="col s3">
         <div class="collection">
             {% if menu_actual == 1 %}
-            <a href="{% url 'actividad-uno' 1 %}" class="collection-item active">Actividad 1</a>
+            <a href="{% url 'actividad-uno' 1 %}" class="collection-item active">
+              Actividad 1
+              {% if alumno.actividad_completada >= 1 %}
+              <i class="material-icons secondary-content">check</i>
+              {% endif %}
+            </a>
             {% else %}
-            <a href="{% url 'actividad-uno' 1 %}" class="collection-item">Actividad 1</a>
+            <a href="{% url 'actividad-uno' 1 %}" class="collection-item">
+              Actividad 1
+              {% if alumno.actividad_completada >= 1 %}
+              <i class="material-icons secondary-content">check</i>
+              {% endif %}
+            </a>
             {% endif %}
             {% if menu_actual == 2 %}
-            <a href="{% url 'actividad-dos' %}" class="collection-item active">Actividad 2</a>
+            <a href="{% url 'actividad-dos' %}" class="collection-item active">
+              Actividad 2
+              {% if alumno.actividad_completada >= 2 %}
+              <i class="material-icons secondary-content">check</i>
+              {% endif %}
+            </a>
             {% else %}
-            <a href="{% url 'actividad-dos' %}" class="collection-item">Actividad 2</a>
+            <a href="{% url 'actividad-dos' %}" class="collection-item">
+              Actividad 2
+              {% if alumno.actividad_completada >= 2 %}
+              <i class="material-icons secondary-content">check</i>
+              {% endif %}
+            </a>
             {% endif %}
             {% if menu_actual == 3 %}
             <a href="{% url 'actividad-tres' %}" class="collection-item active">Actividad 3</a>
@@ -78,6 +98,15 @@
 
       <div class="col s9">
         {% block content %}
+        <div class="card-panel">
+            <div class="row">
+                <h5 class="col s10">Progreso actividades</h5>
+                <h5 class="col s2 right-align">{{ alumno.actividad_completada }}/6</h5>
+            </div>
+            <div class="progress">
+                <div class="determinate" style="width: {{ alumno.porcentaje_completado }}%"></div>
+            </div>
+        </div>
         {% endblock %}
       </div>
 

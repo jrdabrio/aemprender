@@ -24,6 +24,8 @@ class Alumno(User):
         null=True,
         blank=True
     )
+    actividad_completada = models.IntegerField(default=0)
+    porcentaje_completado = models.IntegerField(default=0)
 
     class Meta:
         verbose_name_plural = "Alumnos"

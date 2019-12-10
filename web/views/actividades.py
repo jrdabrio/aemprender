@@ -80,6 +80,11 @@ class ActividadUnoView(FormView):
         if not actividad.has_next():
             messages.success(self.request, '¡Actividad uno completada!.')
 
+            if alumno.actividad_completada == 0:
+                alumno.actividad_completada = 1
+                alumno.porcentaje_completado = 16
+                alumno.save()
+
         return super().form_valid(form)
 
 
@@ -126,6 +131,11 @@ class ActividadDosView(FormView):
             )
 
         messages.success(self.request, '¡Actividad dos completada!.')
+
+        if alumno.actividad_completada == 1:
+            alumno.actividad_completada = 2
+            alumno.porcentaje_completado = 32
+            alumno.save()
 
         return super().form_valid(form)
 
@@ -174,6 +184,11 @@ class ActividadTresView(FormView):
 
         messages.success(self.request, '¡Actividad tres completada!.')
 
+        if alumno.actividad_completada == 2:
+            alumno.actividad_completada = 3
+            alumno.porcentaje_completado = 48
+            alumno.save()
+
         return super().form_valid(form)
 
 
@@ -221,6 +236,11 @@ class ActividadCuatroView(FormView):
 
         messages.success(self.request, '¡Actividad cuatro completada!.')
 
+        if alumno.actividad_completada == 3:
+            alumno.actividad_completada = 4
+            alumno.porcentaje_completado = 64
+            alumno.save()
+
         return super().form_valid(form)
 
 
@@ -267,6 +287,11 @@ class ActividadCincoView(FormView):
             )
 
         messages.success(self.request, '¡Actividad cinco completada!.')
+
+        if alumno.actividad_completada == 4:
+            alumno.actividad_completada = 5
+            alumno.porcentaje_completado = 80
+            alumno.save()
 
         return super().form_valid(form)
 
@@ -344,6 +369,11 @@ class ActividadSeisView(FormView):
             )
 
         messages.success(self.request, '¡Actividad seis completada!.')
+
+        if alumno.actividad_completada == 5:
+            alumno.actividad_completada = 6
+            alumno.porcentaje_completado = 100
+            alumno.save()
 
         return super().form_valid(form)
 
